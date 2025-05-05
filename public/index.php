@@ -1,3 +1,7 @@
+<?php
+require __DIR__ . '/../includes/brief_description_vacancy.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +13,7 @@
 
 <body>
     <h1>Главная страница</h1>
+
 </body>
 
 </html>
