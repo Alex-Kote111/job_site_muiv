@@ -9,8 +9,8 @@ require __DIR__ . '/../includes/brief_description_vacancy.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/styles_index_page.css">
+    <title>Список вакансий</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@ require __DIR__ . '/../includes/brief_description_vacancy.php';
                     </div>
                     <div class="vacancy_experience"><?php echo "Опыт: " . $row['experience'] ?></div>
                     <div class="vacancy_type_of_employment"><?php echo $row['type_of_employment'] ?></div>
-                    <a href="" class="button-style">Подробнее</a>
+                    <a href="<?php echo "http://localhost:3000/public/detailed_vacancy_page.php?vacancy_number=" . $row['vacancy_number']; ?>" class="button-style">Подробнее</a>
                 </div>
         <?php
             }
