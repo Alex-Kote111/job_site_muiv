@@ -28,18 +28,19 @@ SET default_table_access_method = heap;
 CREATE TABLE public.vacancies (
     id bigint NOT NULL,
     vacancy_title character varying(100) NOT NULL,
-    education character varying(50) NOT NULL,
-    experience character varying(50) NOT NULL,
-    type_of_employment character varying(20) NOT NULL,
-    work_schedule character varying(20) NOT NULL,
-    work_format character varying(50) NOT NULL,
+    education character varying(19) NOT NULL,
+    experience character varying(18) NOT NULL,
+    type_of_employment character varying(19) NOT NULL,
+    work_schedule character varying(16) NOT NULL,
+    work_format character varying(21) NOT NULL,
     vacancy_opening_date date NOT NULL,
     template_style_head text,
     vacancy_template_body text,
     salary_from integer,
     salary_up_to integer,
     before_tax boolean,
-    vacancy_posted boolean
+    vacancy_posted boolean,
+    vacancy_number character varying(9)
 );
 
 
@@ -77,9 +78,7 @@ ALTER TABLE ONLY public.vacancies ALTER COLUMN id SET DEFAULT nextval('public.va
 -- Data for Name: vacancies; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.vacancies (id, vacancy_title, education, experience, type_of_employment, work_schedule, work_format, vacancy_opening_date, template_style_head, vacancy_template_body, salary_from, salary_up_to, before_tax, vacancy_posted) FROM stdin;
-1	Менеджер в клиентский отдел	Среднее	От 1 до 3 лет	Полная занятость	Полный день	На месте работодателя	2025-02-10	\N	\N	35000	40000	\N	\N
-2	Старший менеджер	Высшее	от 3 до 6 лет	Частичная занятость	Гибкий график	На месте работодателя	2025-03-23	\N	\N	42000	50000	t	\N
+COPY public.vacancies (id, vacancy_title, education, experience, type_of_employment, work_schedule, work_format, vacancy_opening_date, template_style_head, vacancy_template_body, salary_from, salary_up_to, before_tax, vacancy_posted, vacancy_number) FROM stdin;
 \.
 
 
@@ -87,7 +86,7 @@ COPY public.vacancies (id, vacancy_title, education, experience, type_of_employm
 -- Name: vacancies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.vacancies_id_seq', 2, true);
+SELECT pg_catalog.setval('public.vacancies_id_seq', 15, true);
 
 
 --
