@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/../includes/brief_description_vacancy.php';
+require __DIR__ . '/../includes/payment_format.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ require __DIR__ . '/../includes/brief_description_vacancy.php';
     <main>
         <?php
         if (pg_num_rows($result) == 0) { ?>
-            <div class="no_vacancies"><?php echo "В данный момент нет открытых вакансий.";  ?></div>
+            <div class="no_vacancies"><?php echo "На данный момент нет открытых вакансий."; ?></div>
             <?php
         } else {
             while ($row = pg_fetch_assoc($result)) {
@@ -28,23 +29,9 @@ require __DIR__ . '/../includes/brief_description_vacancy.php';
                 <div class="vacancy_block">
                     <div class="vacancy_title"><?php echo $row['vacancy_title'] ?></div>
                     <div class="vacancy_salary">
-                        <?php
-                        $payment_terms = ""; // условия оплаты
-                        if (is_null($row['salary_from']) && !is_null($row['salary_up_to'])) {
-                            $payment_terms .= "Оплата труда до: " . $row['salary_up_to'] . " ₽ за месяц";
-                        } elseif (!is_null($row['salary_from']) && is_null($row['salary_up_to'])) {
-                            $payment_terms .= "Оплата труда от: " . $row['salary_from'] . " ₽ за месяц";
-                        } elseif (!is_null($row['salary_from']) && !is_null($row['salary_up_to'])) {
-                            $payment_terms .= "Оплата труда от: " . $row['salary_from'] . " до: " . $row['salary_up_to'] . " ₽ за месяц";
-                        }
-
-                        if ($row['before_tax'] === "t" && (!is_null($row['salary_from']) || !is_null($row['salary_up_to']))) {
-                            $payment_terms .= " (до вычета налога)";
-                        }
-                        echo $payment_terms;
-                        ?>
+                        <?php get_payment_format($row["salary_from"], $row["salary_up_to"], $row["before_tax"]) ?>
                     </div>
-                    <div class="vacancy_experience"><?php echo "Опыт: " . $row['experience'] ?></div>
+                    <div class="vacancy_experience"><?php echo "Опыт: " . mb_strtolower($row['experience'], 'UTF-8') ?></div>
                     <div class="vacancy_type_of_employment"><?php echo $row['type_of_employment'] ?></div>
                     <a href="<?php echo "http://localhost:3000/public/detailed_vacancy_page.php?vacancy_number=" . $row['vacancy_number']; ?>" class="button-style">Подробнее</a>
                 </div>

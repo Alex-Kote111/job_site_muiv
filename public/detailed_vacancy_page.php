@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/../includes/connect.php';
-//require "connect.php";
+require __DIR__ . '/../includes/payment_format.php';
+
 $vacancy_number = $_GET["vacancy_number"];
 
 $query = "SELECT * FROM vacancies WHERE vacancy_number = $1";
@@ -9,7 +10,6 @@ if (pg_num_rows($result) === 0) {
     http_response_code(404); // вакансия с таким номером не существует
     die();
 }
-//echo "Страница с подробным описание вакансии - " . $vacancy_number;
 $row = pg_fetch_assoc($result);
 ?>
 
@@ -33,13 +33,13 @@ $row = pg_fetch_assoc($result);
     <main>
         <a href="http://localhost:3000/public/index.php" class="go_home"><u>Вернуться к списку вакансий</u></a>
         <div class="vacancy_header">
-            <div class="title">Старший менеджер в клиентский отдел</div>
-            <div class="education">Образование: неоконченное высшее</div>
-            <div class="experience">Опыт работы: от 1 год до 3 лет</div>
-            <div class="type_employment">Тип занятости: частичная занятость</div>
-            <div class="word_schedule">График работы: полный день</div>
-            <div class="word_format">Формат работы: на месте работодателя</div>
-            <div class="salary">Оплата труда от 80000 до 100000 Р до вычета налога</div>
+            <div class="title"><?php echo $row["vacancy_title"]; ?></div>
+            <div class="education"><?php echo "Образование: " . mb_strtolower($row["education"], 'UTF-8'); ?></div>
+            <div class="experience"><?php echo "Опыт работы: " . mb_strtolower($row["experience"], 'UTF-8'); ?></div>
+            <div class="type_employment"><?php echo "Тип занятости: " . mb_strtolower($row["type_of_employment"], 'UTF-8'); ?></div>
+            <div class="word_schedule"><?php echo "График работы: " . mb_strtolower($row["work_schedule"], 'UTF-8'); ?></div>
+            <div class="word_format"><?php echo "Формат работы: " . mb_strtolower($row["work_format"], 'UTF-8'); ?></div>
+            <div class="salary"><?php get_payment_format($row["salary_from"], $row["salary_up_to"], $row["before_tax"]) ?></div>
             <a href="" class="button-style"> Откликнуться</a>
         </div>
         <div class="detailed_description">

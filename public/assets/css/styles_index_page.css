@@ -28,14 +28,14 @@ header {
 .vacancy_salary {
     margin-left: 15px;
     margin-top: 8px;
-    font-size: 18px;
+    font-size: 19px;
 }
 
 .vacancy_experience {
     display: inline-block;
     margin-left: 15px;
     margin-top: 8px;
-    font-size: 18px;
+    font-size: 17px;
     background-color: rgb(232, 232, 232);
     border-radius: 5px;
     color: rgb(133, 132, 132);
@@ -47,7 +47,7 @@ header {
     margin-left: 15px;
     margin-top: 8px;
     width: fit-content;
-    font-size: 18px;
+    font-size: 17px;
     background-color: rgb(232, 232, 232);
     border-radius: 5px;
     color: rgb(133, 132, 132);
