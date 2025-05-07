@@ -1,6 +1,17 @@
 <?php
 require __DIR__ . '/../includes/brief_description_vacancy.php';
 require __DIR__ . '/../includes/payment_format.php';
+
+session_start();
+if (array_key_exists('error', $_SESSION)) {
+    if ($_SESSION["error"]) {
+        echo "<script>alert('Не удалось отправить анкету. Капча не была пройдена или была попытка отправить одну и ту же анкету.')</script>";
+    } elseif ($_SESSION["error"] === false) {
+        echo "<script>alert('Анкета успешно отправлена')</script>";
+    }
+    unset($_SESSION["error"]);
+}
+
 ?>
 
 <!DOCTYPE html>

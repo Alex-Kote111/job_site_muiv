@@ -93,8 +93,6 @@ if (empty($_SESSION["vacancy_number"])) {
             if (response.length == 0) {
                 alert('Вы не прошли проверку CAPTCHA должным образом');
                 return false;
-            } else {
-                alert('Анкета успешно отправлена');
             }
         });
     </script>
