@@ -3,12 +3,18 @@
 session_start();
 
 require __DIR__ . '/../includes/connect.php';
+    /* print_r($_SESSION);
+echo '<script>alert(Ошибка)</script>' */;
+if (array_key_exists('error_sending_file', $_SESSION)) {
+    echo '<script>alert("' . $_SESSION["error_sending_file"] . '")</script>';
+    unset($_SESSION["error_sending_file"]);
+}
 
 if (empty($_SESSION["vacancy_number"])) {
     http_response_code(404);
     die();
 }
-
+unset($_SESSION["error"]);
 ?>
 
 <!DOCTYPE html>
@@ -34,13 +40,13 @@ if (empty($_SESSION["vacancy_number"])) {
         <!--   ../includes/captcha_check.php -->
         <form action="../includes/add_candidate.php" enctype="multipart/form-data" method="post" id="form">
             <label for=" username">ФИО: </label>
-            <input placeholder="Ваше ФИО.." id="username" type="text" name="username" pattern="([a-яА-ЯЁё]{2,})+\s+([a-яА-ЯЁё]{2,})+\s+([a-яА-ЯЁё]{2,})+" required minlength="6"><br>
+            <input placeholder="Ваше ФИО.." id="username" type="text" name="username" pattern="([a-яА-ЯЁё]{2,})+\s+([a-яА-ЯЁё]{2,})+\s+([a-яА-ЯЁё]{2,})+" required minlength="6" maxlength="150"><br>
 
             <label for="city">Город: </label>
-            <input placeholder="Ваш город проживания.." id="city" type="text" name="city" required><br>
+            <input placeholder="Ваш город проживания.." id="city" type="text" name="city" maxlength="150" required><br>
 
             <label for="metro">Метро: </label>
-            <input placeholder="Ваша станция метро.." id="metro" type="text" name="metro" required><br>
+            <input placeholder="Ваша станция метро.." id="metro" type="text" name="metro" maxlength="150"><br>
 
             <label for="education">Образование: </label>
             <select id="education" name="education" required>
@@ -66,7 +72,7 @@ if (empty($_SESSION["vacancy_number"])) {
             <input id="date_birth" type="date" name="date_of_birth" required><br>
 
             <label for="email">Email: </label>
-            <input placeholder="Ваш email.." type="email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required><br>
+            <input placeholder="Ваш email.." type="email" name="email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" maxlength="255" required><br>
 
             <label for="phone">Телефон: </label>
             <input placeholder="Ваш номер телефона в формате: 89098417612 (11 цифр)" type="text" name="phone" pattern="[0-9]+" minlength="11" maxlength="11" required><br>
@@ -97,7 +103,5 @@ if (empty($_SESSION["vacancy_number"])) {
         });
     </script>
 </body>
-
-
 
 </html>
