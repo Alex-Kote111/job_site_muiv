@@ -22,6 +22,14 @@
     background-color: white;
 }
 
+.date_publication {
+    /* position: static; */
+    text-align: right;
+    padding-right: 10px;
+    /* padding: 10px 10px; */
+    color: rgb(133, 132, 132);
+}
+
 .title {
     font-size: 30px;
     padding: 10px 10px;

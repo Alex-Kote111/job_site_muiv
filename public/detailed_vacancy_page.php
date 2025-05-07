@@ -4,6 +4,7 @@ session_start();
 
 require __DIR__ . '/../includes/connect.php';
 require __DIR__ . '/../includes/payment_format.php';
+require __DIR__ . '/../includes/publication_date_format.php';
 
 $vacancy_number = $_GET["vacancy_number"];
 $_SESSION["vacancy_number"] = $vacancy_number;
@@ -46,6 +47,7 @@ $row = pg_fetch_assoc($result);
             <div class="word_format"><?php echo "Формат работы: " . mb_strtolower($row["work_format"], 'UTF-8'); ?></div>
             <div class="salary"><?php get_payment_format($row["salary_from"], $row["salary_up_to"], $row["before_tax"]) ?></div>
             <a href="http://localhost:3000/public/questionnaire_page.php" class="button-style"> Откликнуться</a>
+            <div class="date_publication"><?php format_publication_date($row["vacancy_opening_date"]); ?></div>
         </div>
         <div class="detailed_description">
             <?php echo $row["vacancy_template_body"]; ?>
