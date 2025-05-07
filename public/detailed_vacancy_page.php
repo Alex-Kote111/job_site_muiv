@@ -32,6 +32,7 @@ $row = pg_fetch_assoc($result);
 
 <body>
     <header>
+        <img src="assets/images/logo-muiv-mini.svg" alt="" class="logo">
         <h1>Вакансия Московского университета С.Ю. Витте</h1>
     </header>
     <main>
@@ -49,9 +50,11 @@ $row = pg_fetch_assoc($result);
         <div class="detailed_description">
             <?php echo $row["vacancy_template_body"]; ?>
         </div>
-        <div class="title_address_work">Где предстоит работать</div>
-        <div class="work_address">г. Москва, 2-ой Кожуховский проезд, 12</div>
-        <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9c805d3687ca79cdb96376082c2c11fdb929f9f8c8f4b2b919eb75d2b1258dd1&amp;source=constructor" width="812" height="538" frameborder="0" class="yandex_map"></iframe>
+        <div class="address_block">
+            <div class="title_address_work">Где предстоит работать</div>
+            <div class="work_address">г. Москва, 2-ой Кожуховский проезд, 12</div>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9c805d3687ca79cdb96376082c2c11fdb929f9f8c8f4b2b919eb75d2b1258dd1&amp;source=constructor" height="538" frameborder="0" class="yandex_map"></iframe>
+        </div>
     </main>
     <footer>
         <p>2025 &copy; МУИВ. Все права защищены.</p>

@@ -16,6 +16,7 @@ require __DIR__ . '/../includes/payment_format.php';
 
 <body>
     <header>
+        <img src="assets/images/logo-muiv-mini.svg" alt="" class="logo">
         <h1>Вакансии Московского университета С.Ю. Витте</h1>
     </header>
     <main>

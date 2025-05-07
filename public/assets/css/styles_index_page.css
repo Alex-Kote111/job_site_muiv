@@ -9,13 +9,23 @@ header {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.logo {
+    position: absolute;
+    max-width: 65px;
+    width: 100%;
+    left: 20px;
+    top: 10px;
+}
+
 .vacancy_block {
-    display: block;
     border: solid rgb(201, 201, 201);
     border-width: 1px;
-    margin: 40px 600px;
-    margin-bottom: 10px;
+    margin: 45px auto;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: -10px;
     border-radius: 25px;
+    background-color: white;
 }
 
 .vacancy_title {
@@ -56,8 +66,9 @@ header {
 }
 
 .button-style {
-    display: inline-block;
-    margin-left: 275px;
+    display: block;
+    margin: 10px auto;
+    width: 175px;
     text-align: center;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -100,8 +111,17 @@ main {
 
 footer {
     text-align: center;
-    /*     padding-top: 40px; */
     font-family: 'Times New Roman', Times, serif;
     font-size: 15px;
     margin-top: auto;
+}
+
+body {
+    background-color: rgb(250, 252, 255);
+}
+
+@media (max-width: 950px) {
+    .logo {
+        display: none;
+    }
 }
