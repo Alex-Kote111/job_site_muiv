@@ -1,0 +1,76 @@
+.go_home {
+    position: absolute;
+    font-size: 20px;
+    padding: 10px;
+    margin-top: -50px;
+    transition: 0.2s;
+}
+
+.go_home:hover {
+    font-size: 22px;
+}
+
+form {
+    background-color: white;
+    display: block;
+    border: solid rgb(201, 201, 201);
+    border-width: 1px;
+    border-radius: 15px;
+    margin: 10px auto;
+    width: 100%;
+    max-width: 800px;
+    padding: 25px 25px;
+    margin-bottom: 20px;
+}
+
+.consent_to_processing {
+    text-align: center;
+    font-size: 16px;
+    padding-top: 10px;
+    font-weight: bold;
+}
+
+.button-style {
+    margin-bottom: -10px;
+}
+
+input,
+select {
+    border: solid black 1px;
+    border-radius: 7px;
+}
+
+input,
+select {
+    margin-bottom: 10px;
+    font-size: 17px;
+    transition: 0.2s;
+}
+
+label {
+    font-size: 19px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input:hover,
+select:hover {
+    background-color: rgb(248, 248, 248);
+}
+
+#photo,
+.photo,
+#resume_file,
+.resume {
+    border: none;
+    box-sizing: initial;
+    background-color: white;
+    width: 100%;
+    max-width: 500px;
+}

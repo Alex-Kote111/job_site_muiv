@@ -2,7 +2,8 @@
     position: absolute;
     font-size: 20px;
     padding: 10px;
-    margin-bottom: -50px;
+    /* margin-bottom: -50px; */
+    margin-top: -50px;
     transition: 0.2s;
 }
 
@@ -16,7 +17,7 @@
     border-width: 1px;
     border-radius: 15px;
     margin: 60px auto;
-    margin-top: 50px;
+    margin-top: 5px;
     width: 100%;
     max-width: 900px;
     background-color: white;
@@ -25,7 +26,7 @@
 .date_publication {
     /* position: static; */
     text-align: right;
-    padding-right: 10px;
+    padding-right: 12px;
     /* padding: 10px 10px; */
     color: rgb(133, 132, 132);
 }
@@ -65,6 +66,7 @@ body {
 
 .button-style {
     margin: 10px auto;
+    margin-top: 20px;
     padding: 17px 34px;
 }
 
