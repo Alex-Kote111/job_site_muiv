@@ -15,7 +15,7 @@ $vacancy_number = $_GET['vacancy_number'];
 $query = "DELETE FROM vacancies WHERE vacancy_number = $1";
 $result = pg_query_params($conn, $query, array($vacancy_number));
 
-if (!$result) {
+if (pg_affected_rows($result) === 0) {
     http_response_code(400); // не удалось удалить вакансию
     die();
 }
