@@ -53,7 +53,7 @@ if (array_key_exists('error', $_SESSION)) {
         ?>
     </main>
     <footer>
-        <p>2025 &copy; МУИВ. Все права защищены.</p>
+        <p>2025 &copy; Котельников А.Б. 70153995. Все права защищены.</p>
     </footer>
 </body>
 

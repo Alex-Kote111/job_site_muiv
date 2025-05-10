@@ -83,9 +83,9 @@ $query = "
 INSERT INTO responses_vacancies
     (name, city, metro, education, sex, date_birth, email, phone,
     photo, resume_file, vacancy_number, name_file_photo, name_file_resume,
-    photo_extension, resume_extension)
+    photo_extension, resume_extension, salary)
 VALUES
-    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15)";
+    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)";
 
 $params = [
     $_POST['username'],
@@ -102,7 +102,8 @@ $params = [
     $photo['name'],
     $resume['name'],
     $photo['type'],
-    $resume['type']
+    $resume['type'],
+    $_POST['salary']
 ];
 
 $result = pg_query_params($conn, $query, $params);

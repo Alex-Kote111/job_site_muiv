@@ -59,7 +59,7 @@ $row = pg_fetch_assoc($result);
         </div>
     </main>
     <footer>
-        <p>2025 &copy; МУИВ. Все права защищены.</p>
+        <p>2025 &copy; Котельников А.Б. 70153995. Все права защищены.</p>
     </footer>
 </body>
 

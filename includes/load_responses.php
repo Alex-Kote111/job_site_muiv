@@ -13,7 +13,7 @@ if ($_SERVER['HTTP_APPLICATION'] !== "1C_recruitment") {
 
 $vacancy_number = $_GET['vacancy_number'];
 
-$query = "SELECT id, name, city, metro, education, sex, date_birth, email, phone, photo_extension, resume_extension  FROM responses_vacancies WHERE vacancy_number = $1";
+$query = "SELECT id, name, city, metro, education, sex, date_birth, email, phone, photo_extension, resume_extension, salary  FROM responses_vacancies WHERE vacancy_number = $1";
 $result = pg_query_params($conn, $query, array($vacancy_number));
 if (!$result) {
     die("Ошибка запроса: " . pg_last_error());

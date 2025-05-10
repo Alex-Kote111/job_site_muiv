@@ -61,6 +61,9 @@ unset($_SESSION["error"]);
                 <option value="Доктор наук">Доктор наук</option>
             </select><br>
 
+            <label for="salary">Заработная плата: </label>
+            <input placeholder="Желаемая зарплата (в рублях)" type="text" name="salary" pattern="[0-9]+" minlength="4" maxlength="10" required><br>
+
             <label for="sex">Пол: </label>
             <select id="sex" name="sex" required>
                 <option value=""></option>
@@ -90,7 +93,7 @@ unset($_SESSION["error"]);
         </form>
     </main>
     <footer>
-        <p>2025 &copy; МУИВ. Все права защищены.</p>
+        <p>2025 &copy; Котельников А.Б. 70153995. Все права защищены.</p>
     </footer>
     <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
     <script>
